@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Cookbook</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+
+  </head>
+
+  <body>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary ms-5 me-5 p-3">
+  <div class="container-fluid">
+    <a class="navbar-brand display-5" href="#">COOKBOOK</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link <%= 'active' if current_page?(root_path) %>" style="font-size: 1.4rem" aria-current="page" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link <%= 'active' if current_page?(new_recipe_path) %>"  style="font-size: 1.4rem" href="/recipes/new">Nova Receita</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link <%= 'active' if current_page?(new_recipe_type_path) %>"  style="font-size: 1.4rem" href="/recipe_types/new">Novo Tipo de Receita</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+  
+    <%= yield %>
+  </body>
+</html>

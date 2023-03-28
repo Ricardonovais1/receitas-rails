@@ -1,0 +1,11 @@
+@import 'bootstrap/scss/bootstrap';
+@import 'bootstrap-icons/font/bootstrap-icons';
+
+
+/* Definir largura fixa para todos os labels */
+form-label {
+  display: inline-block;
+  width: 150px; /* ou o valor desejado */
+  text-align: right;
+  margin-right: 10px; /* adicione margem para separar do elemento ao lado */
+}

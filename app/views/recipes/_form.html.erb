@@ -1,0 +1,38 @@
+<%= form_with model: recipe do |f| %>
+
+<div class="input-group input-group-lg">
+    <%= f.label 'Nome:', class: "input-group-text fw-bold w-25", id: "inputGroup-sizing-lg"  %><br />
+    <%= f.text_field :name, class: "form-control", aria_label: "Sizing example input", aria_describedby: "inputGroup-sizing-lg"  %><br />
+</div>
+
+<div class="input-group input-group-lg mt-3">
+  <%= f.label :recipe_type_id, 'Tipo:', class: "input-group-text fw-bold w-25", id: "inputGroup-sizing-lg" %>
+  <%= f.collection_select :recipe_type_id, RecipeType.all, :id, :name, {}, class: "form-control" %>
+</div>
+
+    
+<div class="input-group input-group-lg mt-3">
+
+    <%= f.label 'Culinária:', class: "input-group-text fw-bold w-25", id: "inputGroup-sizing-lg"  %><br />
+    <%= f.text_field :cuisine, class: "form-control", aria_label: "Sizing example input", aria_describedby: "inputGroup-sizing-lg"   %><br />
+</div>
+<div class="input-group input-group-lg mt-3">
+
+    <%= f.label 'Ingredientes:', class: "input-group-text fw-bold w-25", id: "inputGroup-sizing-lg"  %><br />
+    <%= f.text_area :ingredients, class: "form-control", aria_label: "Sizing example input", aria_describedby: "inputGroup-sizing-lg"    %><br />
+</div>
+<div class="input-group input-group-lg mt-3">
+
+    <%= f.label 'Modo de preparo:', class: "input-group-text fw-bold w-25", id: "inputGroup-sizing-lg"  %><br />
+    <%= f.text_area :cook_method, class: "form-control", aria_label: "Sizing example input", aria_describedby: "inputGroup-sizing-lg"    %><br />
+</div>
+<div class="input-group input-group-lg mt-3">
+
+    <%= f.label 'Tempo de preparo:', class: "input-group-text fw-bold w-25", id: "inputGroup-sizing-lg"  %><br />
+    <%= f.number_field :cook_time, class: "form-control", aria_label: "Sizing example input", aria_describedby: "inputGroup-sizing-lg"    %><br />
+   </div>
+ <div  class="d-grid">
+    <%= f.submit 'Salvar receita', class: "btn btn-success mb-3 mt-5 btn-lg" %>
+ </div>
+<% end %>
+

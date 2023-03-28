@@ -1,0 +1,36 @@
+
+<div class="mx-auto p-4" style="width: 50%; background: #e9ecef">
+
+<div class="container">
+<h2 class="display-6">Receita de <%= @recipe.name %></h2>
+
+        <%= link_to "Editar", edit_recipe_path %>
+
+        <dl>
+                <dd class="p-3"><strong>Nome:</strong> <%= @recipe.name %></dd>
+                <dd class="p-3"><strong>Tipo da receita: </strong><%= @recipe.recipe_type.name if @recipe.recipe_type %></dd>
+                <dd class="p-3"><strong>Cozinha: </strong><%= @recipe.cuisine %></dd>
+                <dd class="p-3"><strong>Ingredientes: </strong><%= @recipe.ingredients %></dd>
+                <dd class="p-3"><strong>Modo de preparo: </strong><%= @recipe.cook_method %></dd>
+                <dd class="callout-info p-3"> <strong>Tempo de preparo:</strong> <%= @recipe.cook_time %> minutos</dd>
+                <span class="d-inline-flex align-items-center">
+                    <dd class="p-3"><strong>Status: </strong><%= @recipe.status %></dd>
+
+                    <% if @recipe.published? %>
+                        <%= button_to "Despublicar", unpublish_recipe_path, class: "btn btn-success", method: "patch" %>
+                        <% else %>
+                        <%= button_to "Publicar", publish_recipe_path, class: "btn btn-success", method: "patch"  %>
+                    <% end %>
+                </span>
+               
+        </dl>
+
+        <%= link_to "Voltar", root_path %>
+
+
+        <% if flash[:notice] %>
+        <%= flash[:notice] %>
+        <% end %>
+</div>
+        
+</div>
